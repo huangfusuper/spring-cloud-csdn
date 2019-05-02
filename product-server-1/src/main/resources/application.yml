@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: PRODUCT-SERVER #服务名称
+server:
+  port: 7001 #服务端口
+eureka:
+  instance:
+    hostname: 127.0.0.1 #服务主机名
+    instance-id: PRODUCT-SERVER-1 #服务id  集群搭建
+    eurekaPort: 3000 #服务器注册端口
+    prefer-ip-address: true #显示ip地址
+    lease-renewal-interval-in-seconds: 10 #给注册中心发送心跳间隔时间
+    lease-expiration-duration-in-seconds: 30 #服务器接收最后一次心跳后间隔多少秒被剔除
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.eurekaPort}/eureka #把本服务注册到Eureka的注册中心
