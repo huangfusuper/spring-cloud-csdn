@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/huangfusuper/config.git
+          username: huangfusuper
+          password: HUANGfu0110..
+eureka:
+  instance:
+    instance-id: config-server-0
+    hostname: 127.0.0.1
+    eurekaPort: 3000
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.eurekaPort}/eureka/
+server:
+  port: 8000

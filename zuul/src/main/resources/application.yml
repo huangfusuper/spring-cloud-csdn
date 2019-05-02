@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: zuul #配置名称
+zuul:
+  routes:
+    user-client: /myuser/** #简洁写法，与下方相同
+    #myuser: #自定义路由规则
+      #path: /myuser/** #访问路径
+      #serviceId: user-client #要改变的服务名称
+  #ignored-patterns:
+    #- /**/userHystrix/findProduct #排除某些路由，无法通过路由访问

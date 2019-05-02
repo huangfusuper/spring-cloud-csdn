@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+      profile: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:3000/eureka #把本服务注册到Eureka的注册中心
