@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eureka-server #服务名称
+server:
+  port: 3000 #服务端口号
+eureka:
+  instance:
+    instance-id: eureka-server0 #服务id名称
+    hostname: 127.0.0.1 #主机名称
+  server:
+    enable-self-preservation: false #关闭服务器的自我保护机制（Eureka高可用额度关键）
+    eviction-interval-timer-in-ms: 30000 #设置失效服务的间隔
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    register-with-eureka: false #本身就是注册中心服务，不需要将自己注册到本身的服务
+    fetch-registry: false #本身就是提供注册信息的服务，不需要从其他服务获取信息(单机情况下这样设置，集群必须开启)
+
